@@ -13,6 +13,40 @@ const jobTypes = {
 
 
 
+class CrewMember {
+    
+  constructor(name, job, specialSkill){
+      this.ship = null;
+      this.name = name;
+      this.job = job;
+      this.specialSkill = specialSkill;
+  }
+
+
+  enterShip(ship){
+    ship.crew.push(this);
+    this.ship = ship;
+  }
+
+}
+
+
+class Ship {
+    
+  constructor(name, type, ability){
+      this.crew = [];
+      this.name = name;
+      this.ability = ability;
+      this.type = type;
+  }
+  
+  missionStatement(){
+    return this.crew.length === 0 ?  "Can't perform a mission yet." :  this.ability;
+  }
+
+}
+
+
 
 
 
